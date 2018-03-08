@@ -99,9 +99,7 @@ body {
   box-shadow: none;
   transition: all 0.2s;
   -moz-user-select: none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
-  -o-user-select: none;
 }
 
 .cb:hover {

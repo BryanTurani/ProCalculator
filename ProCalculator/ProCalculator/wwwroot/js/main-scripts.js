@@ -43,6 +43,7 @@ $(function() {
       screenArray = [text];
     } else if (mode == 'delete') {
       var popped = screenArray.pop();
+
       if (/[(]$/g.test(popped)) {
         parentheses > 0 ? parentheses-- : parentheses = 0;
         adjustParentheses(parentheses);
@@ -99,6 +100,7 @@ $(function() {
 
         ansOnScreen = true;
       }
+
       parentheses = 0;
       expression = '';
       expressionArray = [];
@@ -137,6 +139,7 @@ $(function() {
     function() {
       var key = $(this).attr('key');
       var char = $(this).attr('char');
+
       if (inverted) {
         toggleInverted();
       }
@@ -191,9 +194,7 @@ $(function() {
         parentheses > 0 ? parentheses-- : parentheses = 0;
         adjustParentheses(parentheses);
       }
-
     }
-
   );
 
   // Add a function, change parentheses ------
@@ -221,7 +222,6 @@ $(function() {
       if (inverted) {
         toggleInverted();
       }
-
     }
   );
 
@@ -231,7 +231,8 @@ $(function() {
       if (ansOnScreen) {
         writeToScreen('write', '');
         ansOnScreen = false;
-      }
+        }
+
       if (!/[Ans]$|[0-9]$|[π]$|[e]$/g.test($('.screentext').html())) {
         addToExpression(ans.toString());
         writeToScreen('append', 'Ans');
@@ -262,7 +263,6 @@ $(function() {
         removeFromExpression();
         writeToScreen('delete', '');
       }
-
     }
   );
 
@@ -285,5 +285,4 @@ $(function() {
       writeToScreen('append', key);
     }
   );
-
 });
